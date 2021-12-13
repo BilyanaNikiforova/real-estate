@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,6 +24,9 @@ public class Neighborhood {
     @NotNull
     @Column(nullable = false, unique = true) //vuzrajdane 3
     private String name;
+
+    @ManyToMany(mappedBy =  "neighborhoods")
+    private Set<City> cities;
 
 
 }
