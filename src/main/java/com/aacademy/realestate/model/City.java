@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CollectionId;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -23,14 +22,14 @@ public class City {
     private Long id;
 
     @NotNull //notnull - proverqva v koda
-    @Column(nullable = false,unique = true) //nullable - shte go napravi notnull v tablicata
+    @Column(nullable = false, unique = true) //nullable - shte go napravi notnull v tablicata
     private String name;
 
     @OneToMany
     @JoinTable(
-            name="cities_neighborhoods" ,
-            joinColumns = @JoinColumn(name= "city_id"),
-            inverseJoinColumns = @JoinColumn(name="neighborhood_id")
+            name = "cities_neighborhoods",
+            joinColumns = @JoinColumn(name = "city_id"),
+            inverseJoinColumns = @JoinColumn(name = "neighborhood_id")
     )
 
     private Set<Neighborhood> neighborhoods;

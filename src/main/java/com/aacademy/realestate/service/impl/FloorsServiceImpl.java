@@ -19,6 +19,7 @@ public class FloorsServiceImpl implements FloorService {
 
     @Autowired
     public FloorsServiceImpl(FloorRepository floorRepository) {
+
         this.floorRepository = floorRepository;
     }
 
@@ -40,13 +41,14 @@ public class FloorsServiceImpl implements FloorService {
     @Override
     public Floor findByNumber(Integer number) {
         return floorRepository.findByNumber(number)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Floor with %d does not exists")));
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        String.format("Floor with %d does not exists", number)));
     }
 
     @Override
     public Floor findById(Long id) {
         return floorRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Floor with id %d does not exists")));
+                .orElseThrow(() -> new ResourceNotFoundException(String.format("Floor with id %d does not exists", id)));
     }
 
     @Override
@@ -64,6 +66,6 @@ public class FloorsServiceImpl implements FloorService {
         floorRepository.deleteById(id);
 
     }
-
-
 }
+
+

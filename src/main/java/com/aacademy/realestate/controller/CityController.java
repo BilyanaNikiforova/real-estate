@@ -46,11 +46,11 @@ public class CityController {
         return ResponseEntity.ok(cityDtoResponse);
     }
 
-    @PutMapping(value="/detach")
+    @PutMapping(value = "/detach")
     public ResponseEntity<HttpStatus> detach(@RequestBody CityDetachNeighborhoodDto cityDetachNeighborhoodDto) {
 
-    cityService.detachCityNeighborhood(cityDetachNeighborhoodDto.getCityId(), cityDetachNeighborhoodDto.getNeighborhoodIds());
-    return ResponseEntity.ok().build();
+        cityService.detachCityNeighborhood(cityDetachNeighborhoodDto.getCityId(), cityDetachNeighborhoodDto.getNeighborhoodIds());
+        return ResponseEntity.ok().build();
     }
 }
 

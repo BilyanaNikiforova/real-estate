@@ -5,7 +5,6 @@ import com.aacademy.realestate.model.Neighborhood;
 import com.aacademy.realestate.repository.NeighborhoodRepository;
 import com.aacademy.realestate.service.NeighborhoodService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -16,7 +15,7 @@ public class NeighborhoodServiceImpl implements NeighborhoodService {
     private final NeighborhoodRepository neighborhoodRepository;
 
     @Autowired
-    public NeighborhoodServiceImpl(NeighborhoodRepository neighborhoodRepository){
+    public NeighborhoodServiceImpl(NeighborhoodRepository neighborhoodRepository) {
         this.neighborhoodRepository = neighborhoodRepository;
     }
 

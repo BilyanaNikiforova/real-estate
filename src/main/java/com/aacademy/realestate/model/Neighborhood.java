@@ -25,7 +25,7 @@ public class Neighborhood {
     @Column(nullable = false, unique = true) //vuzrajdane 3
     private String name;
 
-    @ManyToMany(mappedBy =  "neighborhoods")
+    @ManyToMany(mappedBy = "neighborhoods")
     private Set<City> cities;
 
 

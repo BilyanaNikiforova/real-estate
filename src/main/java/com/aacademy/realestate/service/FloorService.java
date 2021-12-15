@@ -2,7 +2,6 @@ package com.aacademy.realestate.service;
 
 import com.aacademy.realestate.model.Floor;
 
-import java.util.List;
 import java.util.Set;
 
 public interface FloorService {
