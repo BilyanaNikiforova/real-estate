@@ -1,5 +1,7 @@
 package com.aacademy.realestate.service.impl.func;
 
+import com.aacademy.realestate.exception.DublicateRecordException;
+import com.aacademy.realestate.exception.ResourceNotFoundException;
 import com.aacademy.realestate.model.Floor;
 import com.aacademy.realestate.repository.FloorRepository;
 import com.aacademy.realestate.service.FloorService;
@@ -86,5 +88,27 @@ public class FloorServiceFunctest {
         Optional<Floor> actualFloor = floorRepository.findById(floor.getId());
         assertTrue(actualFloor.isPresent());
     }
-}
+
+    @Test
+    public void verifyFindNumberById(){
+        floorRepository.save(Floor.builder().number(1).build());
+        Floor actual = floorService.findByNumber(1);
+        assertEquals(actual.getNumber(),actual.getNumber());
+    }
+
+    @Test(expected = ResourceNotFoundException.class)
+    public void verifyFindByNumberException(){
+        floorService.findByNumber(1);
+        }
+
+        @Test(expected = DublicateRecordException.class)
+    public void verifyDuplicateException(){
+        floorService.save(Floor.builder().number(1).build());
+        floorService.save(Floor.builder().number(1).build());
+        }
+
+
+    }
+
+
 
